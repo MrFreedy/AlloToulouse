@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="toulouse_pink">#FF2751</color>
+    <color name="toulouse_orange">#FF783B</color>
+</resources>
