@@ -4,4 +4,13 @@
     <color name="white">#FFFFFFFF</color>
     <color name="toulouse_pink">#FF2751</color>
     <color name="toulouse_orange">#FF783B</color>
+    <color name="dechet_vert">#7FFF4D</color>
+    <color name="encombrants">#B86A3C</color>
+    <color name="degradations">#FF7700</color>
+    <color name="eclairage">#FFD84D</color>
+    <color name="tag_affiche">#B174FF</color>
+    <color name="proprete">#56FFCC</color>
+    <color name="collecte">#FC75FF</color>
+    <color name="circulation">#FF3D48</color>
+    <color name="stationnement">#4E75FF</color>
 </resources>
