@@ -13,4 +13,5 @@
     <color name="collecte">#FC75FF</color>
     <color name="circulation">#FF3D48</color>
     <color name="stationnement">#4E75FF</color>
+    <color name="transparent">#FF783B</color>
 </resources>

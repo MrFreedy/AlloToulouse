@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity_Toulouse">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,291 +29,6 @@
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="25dp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat_semibold"
-                android:text="@string/rdv"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                android:textStyle="bold" />
-
-            <LinearLayout
-                android:layout_width="175dp"
-                android:layout_height="3dp"
-                android:background="@color/toulouse_pink" />
-
-            <HorizontalScrollView
-                android:layout_width="wrap_content"
-                android:layout_height="130dp">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="150dp"
-                    android:layout_marginTop="10dp"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/card"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:fontFamily="@font/montserrat_semibold"
-                            android:text="Vendredi 29 Septembre"
-                            android:textColor="@color/black"
-                            android:textSize="12dp"
-                            android:textStyle="bold" />
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:scaleX="0.75"
-                            android:scaleY="0.75"
-                            android:src="@drawable/feuille" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginTop="-10dp"
-                            android:fontFamily="@font/montserrat"
-                            android:text="Déchets verts"
-                            android:textColor="@color/black"
-                            android:textSize="12dp"
-                            android:textStyle="normal" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_margin="10dp"
-                            android:fontFamily="@font/montserrat_semibold"
-                            android:text="6 sacs et 3 fagots"
-                            android:textColor="@color/black"
-                            android:textSize="12dp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <Space
-                        android:layout_width="20dp"
-                        android:layout_height="match_parent" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/card"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:fontFamily="@font/montserrat_semibold"
-                            android:text="Vendredi 29 Septembre"
-                            android:textColor="@color/black"
-                            android:textSize="12dp"
-                            android:textStyle="bold" />
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:scaleX="0.75"
-                            android:scaleY="0.75"
-                            android:src="@drawable/garde_robe" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginTop="-10dp"
-                            android:fontFamily="@font/montserrat"
-                            android:text="Encombrants"
-                            android:textColor="@color/black"
-                            android:textSize="12dp"
-                            android:textStyle="normal" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_margin="10dp"
-                            android:fontFamily="@font/montserrat_semibold"
-                            android:text="Voir le détail"
-                            android:textColor="@color/black"
-                            android:textSize="12dp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <Space
-                        android:layout_width="20dp"
-                        android:layout_height="match_parent" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/card"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:fontFamily="@font/montserrat_semibold"
-                            android:text="Lundi 02 Octobre"
-                            android:textColor="@color/black"
-                            android:textSize="12dp"
-                            android:textStyle="bold" />
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:scaleX="0.75"
-                            android:scaleY="0.75"
-                            android:src="@drawable/garde_robe" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginTop="-10dp"
-                            android:fontFamily="@font/montserrat"
-                            android:text="Encombrants"
-                            android:textColor="@color/black"
-                            android:textSize="12dp"
-                            android:textStyle="normal" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_margin="10dp"
-                            android:fontFamily="@font/montserrat_semibold"
-                            android:text="Voir le détail"
-                            android:textColor="@color/black"
-                            android:textSize="12dp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <Space
-                        android:layout_width="20dp"
-                        android:layout_height="match_parent" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/card"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:fontFamily="@font/montserrat_semibold"
-                            android:text="Lundi 02 Octobre"
-                            android:textColor="@color/black"
-                            android:textSize="12dp"
-                            android:textStyle="bold" />
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:scaleX="0.75"
-                            android:scaleY="0.75"
-                            android:src="@drawable/garde_robe" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginTop="-10dp"
-                            android:fontFamily="@font/montserrat"
-                            android:text="Encombrants"
-                            android:textColor="@color/black"
-                            android:textSize="12dp"
-                            android:textStyle="normal" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_margin="10dp"
-                            android:fontFamily="@font/montserrat_semibold"
-                            android:text="Voir le détail"
-                            android:textColor="@color/black"
-                            android:textSize="12dp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <Space
-                        android:layout_width="20dp"
-                        android:layout_height="match_parent" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/card"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:fontFamily="@font/montserrat_semibold"
-                            android:text="Lundi 02 Octobre"
-                            android:textColor="@color/black"
-                            android:textSize="12dp"
-                            android:textStyle="bold" />
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:scaleX="0.75"
-                            android:scaleY="0.75"
-                            android:src="@drawable/garde_robe" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginTop="-10dp"
-                            android:fontFamily="@font/montserrat"
-                            android:text="Encombrants"
-                            android:textColor="@color/black"
-                            android:textSize="12dp"
-                            android:textStyle="normal" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_margin="10dp"
-                            android:fontFamily="@font/montserrat_semibold"
-                            android:text="Voir le détail"
-                            android:textColor="@color/black"
-                            android:textSize="12dp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                </LinearLayout>
-            </HorizontalScrollView>
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -373,7 +88,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_marginTop="-10dp"
                             android:fontFamily="@font/montserrat"
                             android:text="Lampe en panne"
                             android:textColor="@color/black"
@@ -424,7 +138,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_marginTop="-10dp"
                             android:fontFamily="@font/montserrat"
                             android:text="Détritus"
                             android:textColor="@color/black"
@@ -475,7 +188,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_marginTop="-10dp"
                             android:fontFamily="@font/montserrat"
                             android:text="Stationnement abusif"
                             android:textColor="@color/black"
@@ -526,7 +238,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_marginTop="-10dp"
                             android:fontFamily="@font/montserrat"
                             android:text="Mobilier urbain"
                             android:textColor="@color/black"
@@ -650,6 +361,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:fontFamily="@font/montserrat_semibold"
                 android:text="Faire une nouvelle demande"
                 android:textColor="@color/black"
@@ -689,6 +401,8 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:gravity="center"
+
                             android:fontFamily="@font/montserrat_semibold"
                             android:text="Eclairage"
                             android:textColor="@color/black"
@@ -715,6 +429,8 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:gravity="center"
+
                             android:fontFamily="@font/montserrat_semibold"
                             android:text="Tags/Affiches"
                             android:textColor="@color/black"
@@ -726,6 +442,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_column="2"
+                        android:layout_marginEnd="16dp"
                         android:orientation="vertical"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
@@ -741,7 +458,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/montserrat_semibold"
-                            android:text="Déchets verts"
+                            android:gravity="center"
+                            android:text="Propreté"
                             android:textColor="@color/black"
                             android:textSize="12dp" />
                     </LinearLayout>
@@ -769,7 +487,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/montserrat_semibold"
-                            android:text="Collecte\ndéchets"
+                            android:gravity="center"
+                            android:text="Collecte\nOM/Tri"
                             android:textColor="@color/black"
                             android:textSize="12dp" />
                     </LinearLayout>
@@ -798,6 +517,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/montserrat_semibold"
+                            android:gravity="center"
                             android:text="Circulation\nSignalisation"
                             android:textColor="@color/black"
                             android:textSize="12dp" />
@@ -833,9 +553,145 @@
 
         </LinearLayout>
     </LinearLayout>
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="80dp"
         android:background="@color/toulouse_orange"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:id="@+id/linearLayout10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/linearLayout13">
+
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:background="@drawable/transparent"
+                android:src="@drawable/ic_accueil_white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Accueil"
+                android:textColor="@color/white"
+                android:textSize="12dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/linearLayout3"
+            app:layout_constraintStart_toEndOf="@+id/linearLayout10"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:background="@drawable/transparent"
+                android:src="@drawable/carte" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Carte"
+                android:textColor="@color/black"
+                android:textSize="12dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/linearLayout12"
+            app:layout_constraintStart_toEndOf="@+id/linearLayout13"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:background="@drawable/transparent"
+                android:src="@drawable/rechercher" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Rechercher"
+                android:textColor="@color/black"
+                android:textSize="12dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/linearLayout14"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/linearLayout3">
+
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:background="@drawable/transparent"
+                android:src="@drawable/avatar" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Mon profil"
+                android:textColor="@color/black"
+                android:textSize="12dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/linearLayout12">
+
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:background="@drawable/transparent"
+                android:src="@drawable/aide" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Aide"
+                android:textColor="@color/black"
+                android:textSize="12dp" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

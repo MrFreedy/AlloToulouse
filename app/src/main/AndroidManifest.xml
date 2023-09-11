@@ -13,14 +13,27 @@
         android:theme="@style/Theme.AlloToulouse"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".startupActivity"
             android:screenOrientation="portrait"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity_Toulouse"
+            android:screenOrientation="portrait"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".MainActivity_Metropole"
+            android:screenOrientation="portrait"
+            android:exported="true">
+        </activity>
+        <activity android:name=".main_menu"
+            android:screenOrientation="portrait"
+            android:exported="true">
         </activity>
     </application>
 
