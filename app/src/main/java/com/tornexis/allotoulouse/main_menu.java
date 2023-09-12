@@ -20,7 +20,7 @@ public class main_menu extends AppCompatActivity {
 
         Spinner spinner = (Spinner) findViewById(R.id.commune_spinner);
         String[] communes = new String[]{
-          "Commune...","Aigrefeuille","Aucamville","Aussonne","Balma","Beaupuy","Beauzelle","Blagnac","Brax","Bruguières","Castelginest","Colomiers","Cornebarrieu","Cugnaux","Drémil-Lafage","Fenouillet","Flourens","Fonbeauzard","Gagnac-sur-Garonne","Gratentour","Launaguet","Lespinasse","Mondonville","Mondouzil","Mons","Montrabé","Pibrac","Pin-Balma","Quint-Fonsegrives","Saint-Alban","Saint-Jean","Saint-Jory","Saint-Orens-de-Gameville","Seilh","Toulouse","Tournefeuille","L'Union","Villeneuve-Tolosane"
+          "Commune...","Toulouse","Aigrefeuille","Aucamville","Aussonne","Balma","Beaupuy","Beauzelle","Blagnac","Brax","Bruguières","Castelginest","Colomiers","Cornebarrieu","Cugnaux","Drémil-Lafage","Fenouillet","Flourens","Fonbeauzard","Gagnac-sur-Garonne","Gratentour","Launaguet","Lespinasse","Mondonville","Mondouzil","Mons","Montrabé","Pibrac","Pin-Balma","Quint-Fonsegrives","Saint-Alban","Saint-Jean","Saint-Jory","Saint-Orens-de-Gameville","Seilh","Tournefeuille","L'Union","Villeneuve-Tolosane"
         };
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.spinner_item, communes);
         adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
