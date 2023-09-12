@@ -47,7 +47,7 @@
                     android:fontFamily="@font/montserrat_semibold"
                     android:text="Adresse d'intervention"
                     android:textColor="@color/black"
-                    android:textSize="20dp"
+                    android:textSize="18dp"
                     android:textStyle="bold" />
                 <TextView
                     android:layout_width="wrap_content"
@@ -55,7 +55,7 @@
                     android:fontFamily="@font/montserrat_semibold"
                     android:text="*"
                     android:textColor="@color/toulouse_pink"
-                    android:textSize="20dp"
+                    android:textSize="18dp"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -93,7 +93,7 @@
                 android:fontFamily="@font/montserrat_semibold"
                 android:text="Complément d'adresse"
                 android:textColor="@color/black"
-                android:textSize="20dp"
+                android:textSize="18dp"
                 android:textStyle="bold" />
 
             <LinearLayout
@@ -115,6 +115,72 @@
                     android:textSize="15dp"/>
             </LinearLayout>
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:text="Qualité du demandeur"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:text="*"
+                    android:textColor="@color/toulouse_pink"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="240dp"
+                android:layout_height="3dp"
+                android:background="@color/toulouse_pink" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <RadioButton
+                        android:id="@+id/radio_particulier"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="40dp"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:text="Particulier"
+                        android:textColor="@color/black"
+                        android:textSize="12dp"
+                        android:textStyle="bold"
+                        />
+                    <RadioButton
+                        android:id="@+id/radio_syndic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:text="Syndic"
+                        android:textColor="@color/black"
+                        android:textSize="12dp"
+                        android:textStyle="bold"
+                        />
+                </RadioGroup>
+
+            </LinearLayout>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -128,7 +194,7 @@
                 android:fontFamily="@font/montserrat_semibold"
                 android:text="Vos déchets verts"
                 android:textColor="@color/black"
-                android:textSize="20dp"
+                android:textSize="18dp"
                 android:textStyle="bold" />
             <LinearLayout
                 android:layout_width="185dp"
@@ -139,8 +205,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp">
+                android:layout_marginTop="10dp">
 
                 <TextView
                     android:id="@+id/title_sac"
@@ -149,6 +214,8 @@
                     android:layout_marginStart="72dp"
                     android:fontFamily="@font/montserrat_semibold"
                     android:text="Sacs (0,1m³)"
+                    android:textSize="12dp"
+                    android:textStyle="bold"
                     android:textColor="@color/black"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -163,6 +230,8 @@
                     android:layout_marginEnd="64dp"
                     android:fontFamily="@font/montserrat_semibold"
                     android:text="Fagots (0,1m³)"
+                    android:textSize="12dp"
+                    android:textStyle="bold"
                     android:textColor="@color/black"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -209,6 +278,8 @@
                     android:layout_margin="10dp"
                     android:layout_marginTop="4dp"
                     android:layout_marginEnd="91dp"
+                    android:textSize="12dp"
+
                     android:popupBackground="@color/white"
                     android:spinnerMode="dropdown"
                     android:textColor="@color/white"
@@ -226,6 +297,8 @@
                     android:layout_margin="10dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="15dp"
+                    android:textSize="12dp"
+
                     android:popupBackground="@color/white"
                     android:spinnerMode="dropdown"
                     android:textColor="@color/white"
@@ -238,13 +311,13 @@
             <HorizontalScrollView
                 android:id="@+id/scrollview_date_dv"
                 android:layout_width="wrap_content"
-                android:layout_height="70dp">
+                android:layout_marginBottom="10dp"
+                android:layout_height="60dp">
 
                 <LinearLayout
                     android:id="@+id/scrollview_container_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:orientation="horizontal">
 
                     <LinearLayout
@@ -332,6 +405,14 @@
                     </LinearLayout>
                 </LinearLayout>
             </HorizontalScrollView>
+            <Button
+                android:id="@+id/validate_dv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/white"
+                android:background="@drawable/button_dechet_vert"
+                android:text="Valider"/>
         </LinearLayout>
     </LinearLayout>
     <androidx.constraintlayout.widget.ConstraintLayout

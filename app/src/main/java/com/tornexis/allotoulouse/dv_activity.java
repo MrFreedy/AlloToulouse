@@ -8,10 +8,13 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -34,6 +37,7 @@ public class dv_activity extends AppCompatActivity {
             "55 Allée de Barcelone, 31000 Toulouse",
             "22 Rue des Filatiers, 31000 Toulouse"
     };
+    String date = null;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,7 +105,7 @@ public class dv_activity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         TextView date_textView = (TextView) ((LinearLayout) child).getChildAt(0);
-                        String date = date_textView.getText().toString();
+                        date = date_textView.getText().toString();
 
                         if (previouslySelectedChild[0] != null) {
                             previouslySelectedChild[0].setBackgroundResource(R.drawable.card); // Remplacez "R.drawable.card" par votre ressource par défaut
@@ -120,6 +124,32 @@ public class dv_activity extends AppCompatActivity {
             }
         }
 
+        RadioButton radio_particulier = findViewById(R.id.radio_particulier);
+        RadioButton radio_syndic = findViewById(R.id.radio_syndic);
 
+        Button validate = findViewById(R.id.validate_dv);
+        validate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!adresse_completeTextView.getText().toString().trim().isEmpty()){
+                    if(radio_particulier.isChecked() || radio_syndic.isChecked()){
+                        if(num_fagot==0 && num_sac==0){
+                            Toast.makeText(getApplicationContext(),"Veuillez saisir le nombre de sac et/ou fagots",Toast.LENGTH_SHORT).show();
+                        }else{
+                            if(date!=null || date ==""){
+
+                            }else{
+                                Toast.makeText(getApplicationContext(), "Veuillez sélectionner une date", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
+                    else{
+                        Toast.makeText(getApplicationContext(), "Veuillez sélectionner la qualité du demandeur", Toast.LENGTH_SHORT).show();
+                    }
+                }else{
+                    Toast.makeText(getApplicationContext(), "Veuillez saisir une adresse d'intervention", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 }
