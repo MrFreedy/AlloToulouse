@@ -46,11 +46,13 @@ public class main_menu extends AppCompatActivity {
             public void onClick(View v) {
                 if(commune !=null && !commune.equals("Commune...")){
                     if(commune.equals("Toulouse")){
+                        finish();
                         Intent add_intent = new Intent(main_menu.this, MainActivity_Toulouse.class);
                         add_intent.putExtra("commune",commune);
                         add_intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(add_intent);
                     }else{
+                        finish();
                         Intent add_intent = new Intent(main_menu.this, MainActivity_Metropole.class);
                         add_intent.putExtra("commune",commune);
                         add_intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

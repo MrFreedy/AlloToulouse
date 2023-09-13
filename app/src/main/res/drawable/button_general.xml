@@ -5,7 +5,7 @@
             <!-- Fond du bouton avec le halo vert -->
             <item>
                 <shape>
-                    <solid android:color="@color/eclairage_selected" />
+                    <solid android:color="@color/toulouse_pink_selected" />
                     <corners android:radius="360dp" />
                 </shape>
             </item>
@@ -15,7 +15,8 @@
     <!-- État normal -->
     <item>
         <shape>
-            <solid android:color="@color/eclairage" />
+            <solid android:color="@color/toulouse_pink"/>
+            <size android:height="50dp" android:width="50dp"/>
             <corners android:radius="360dp" />
         </shape>
     </item>

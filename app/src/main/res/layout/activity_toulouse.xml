@@ -52,7 +52,7 @@
 
             <HorizontalScrollView
                 android:layout_width="wrap_content"
-                android:layout_height="130dp">
+                android:layout_height="wrap_content">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -571,6 +571,7 @@
             app:layout_constraintEnd_toStartOf="@+id/linearLayout13">
 
             <ImageButton
+                android:id="@+id/return_commune_button"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"

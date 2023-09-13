@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ModalStyle" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowBackground">@drawable/activity_rounded</item>
+        <item name="android:windowTitleBackgroundStyle">@color/toulouse_pink</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+</resources>

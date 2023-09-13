@@ -3,15 +3,26 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="toulouse_pink">#FF2751</color>
+    <color name="toulouse_pink_selected">#ab4357</color>
     <color name="toulouse_orange">#FF783B</color>
     <color name="dechet_vert">#7FFF4D</color>
+    <color name="dechet_vert_selected">#86bd71</color>
     <color name="encombrants">#B86A3C</color>
+    <color name="encombrants_selected">#916d57</color>
     <color name="degradations">#FF7700</color>
+    <color name="degradations_selected">#cf8340</color>
     <color name="eclairage">#FFD84D</color>
+    <color name="eclairage_selected">#c4ad5a</color>
     <color name="tag_affiche">#B174FF</color>
+    <color name="tag_affiche_selected">#8664b3</color>
     <color name="proprete">#56FFCC</color>
+    <color name="proprete_selected">#5ebda0</color>
     <color name="collecte">#FC75FF</color>
+    <color name="collecte_selected">#a961ab</color>
     <color name="circulation">#FF3D48</color>
+    <color name="circulation_selected">#a63a40</color>
     <color name="stationnement">#4E75FF</color>
+    <color name="stationnement_selected">#495c9e</color>
     <color name="transparent">#FF783B</color>
+    <color name="transparent_selected">#a3684d</color>
 </resources>

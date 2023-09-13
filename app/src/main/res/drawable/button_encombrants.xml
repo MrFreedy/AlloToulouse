@@ -1,5 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="@color/encombrants"/>
-    <corners android:radius="360dp"/>
-</shape>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- État pressé -->
+    <item android:state_pressed="true">
+        <layer-list>
+            <!-- Fond du bouton avec le halo vert -->
+            <item>
+                <shape>
+                    <solid android:color="@color/encombrants_selected" />
+                    <corners android:radius="360dp" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+
+    <!-- État normal -->
+    <item>
+        <shape>
+            <solid android:color="@color/encombrants" />
+            <corners android:radius="360dp" />
+        </shape>
+    </item>
+</selector>

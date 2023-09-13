@@ -2,11 +2,12 @@
     android:id="@android:id/text1"
     style="?android:attr/spinnerDropDownItemStyle"
     android:singleLine="true"
+    android:paddingVertical="10dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:textColor="@color/black"
     android:background="@color/white"
     android:fontFamily="@font/montserrat_semibold"
     android:textStyle="bold"
-    android:textSize="15dp"
+    android:textSize="15sp"
     android:ellipsize="marquee"/>

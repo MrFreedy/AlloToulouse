@@ -61,7 +61,7 @@
 
 
             <LinearLayout
-                android:layout_width="255dp"
+                android:layout_width="220dp"
                 android:layout_height="3dp"
                 android:background="@color/toulouse_pink" />
 
@@ -97,7 +97,7 @@
                 android:textStyle="bold" />
 
             <LinearLayout
-                android:layout_width="255dp"
+                android:layout_width="215dp"
                 android:layout_height="3dp"
                 android:background="@color/toulouse_pink" />
 
@@ -118,7 +118,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_marginHorizontal="10dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -144,7 +144,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="240dp"
+                android:layout_width="220dp"
                 android:layout_height="3dp"
                 android:background="@color/toulouse_pink" />
 
@@ -185,7 +185,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_marginHorizontal="10dp"
             android:orientation="vertical">
 
             <TextView
@@ -247,7 +247,7 @@
                 <ImageView
                     android:id="@+id/sac_image"
                     android:layout_width="80dp"
-                    android:layout_height="130dp"
+                    android:layout_height="100dp"
                     android:src="@drawable/sac_dv"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -256,10 +256,10 @@
                 <ImageView
                     android:id="@+id/fagot_image"
                     android:layout_width="80dp"
-                    android:layout_height="130dp"
+                    android:layout_height="100dp"
                     android:src="@drawable/fagot_dv"
-                    android:scaleX="1.5"
-                    android:scaleY="1.5"
+                    android:scaleX="1"
+                    android:scaleY="1"
                     android:rotation="-90"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -411,7 +411,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:textColor="@color/white"
-                android:background="@drawable/button_dechet_vert"
+                android:background="@drawable/button_general"
                 android:text="Valider"/>
         </LinearLayout>
     </LinearLayout>
@@ -432,6 +432,7 @@
             app:layout_constraintEnd_toStartOf="@+id/linearLayout13">
 
             <ImageButton
+                android:id="@+id/return_accueil_button_dv"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"

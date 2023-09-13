@@ -19,5 +19,13 @@ public class MainActivity_Toulouse extends AppCompatActivity {
             add_intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(add_intent);
         });
+
+        ImageButton return_commune_button = findViewById(R.id.return_commune_button);
+        return_commune_button.setOnClickListener(v->{
+            finish();
+            Intent commune_intent = new Intent(MainActivity_Toulouse.this, main_menu.class);
+            commune_intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(commune_intent);
+        });
     }
 }

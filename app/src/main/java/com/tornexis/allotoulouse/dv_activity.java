@@ -1,24 +1,26 @@
 package com.tornexis.allotoulouse;
 
+import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.HorizontalScrollView;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import org.w3c.dom.Text;
 
 public class dv_activity extends AppCompatActivity {
     Integer num_sac = 0;
@@ -47,6 +49,8 @@ public class dv_activity extends AppCompatActivity {
         ArrayAdapter<String> adresse_adapter = new ArrayAdapter<String>(this, R.layout.simple_spinner_dropdown_item,adresses);
         adresse_completeTextView.setThreshold(2);
         adresse_completeTextView.setAdapter(adresse_adapter);
+
+        EditText complement_adresse = findViewById(R.id.edit_complement_adresse);
 
         Spinner spinner_sac = findViewById(R.id.nb_sac_dv);
         String[] sac = new String[]{
@@ -117,8 +121,6 @@ public class dv_activity extends AppCompatActivity {
 
                         child.setBackgroundResource(R.drawable.card_selected);
                         date_textView.setTextColor(Color.WHITE);
-
-                        System.out.println(date);
                     }
                 });
             }
@@ -126,6 +128,7 @@ public class dv_activity extends AppCompatActivity {
 
         RadioButton radio_particulier = findViewById(R.id.radio_particulier);
         RadioButton radio_syndic = findViewById(R.id.radio_syndic);
+
 
         Button validate = findViewById(R.id.validate_dv);
         validate.setOnClickListener(new View.OnClickListener() {
@@ -137,6 +140,14 @@ public class dv_activity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(),"Veuillez saisir le nombre de sac et/ou fagots",Toast.LENGTH_SHORT).show();
                         }else{
                             if(date!=null || date ==""){
+                                String adresse = adresse_completeTextView.getText().toString() + "\n"+ complement_adresse.getText().toString();
+                                Intent popup_dv_intent = new Intent(dv_activity.this, activity_popup_dv.class);
+                                popup_dv_intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                popup_dv_intent.putExtra("nb_sacs",num_sac);
+                                popup_dv_intent.putExtra("nb_fagots",num_fagot);
+                                popup_dv_intent.putExtra("adresse",adresse);
+                                popup_dv_intent.putExtra("date",date);
+                                startActivity(popup_dv_intent);
 
                             }else{
                                 Toast.makeText(getApplicationContext(), "Veuillez sélectionner une date", Toast.LENGTH_SHORT).show();
@@ -150,6 +161,11 @@ public class dv_activity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Veuillez saisir une adresse d'intervention", Toast.LENGTH_SHORT).show();
                 }
             }
+        });
+
+        ImageButton return_accueil_button = findViewById(R.id.return_accueil_button_dv);
+        return_accueil_button.setOnClickListener(v->{
+            finish();
         });
     }
 }
