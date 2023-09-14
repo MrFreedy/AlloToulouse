@@ -49,6 +49,11 @@
             android:screenOrientation="portrait"
             android:exported="true">
         </activity>
+        <activity
+            android:name=".encombrant_activity"
+            android:screenOrientation="portrait"
+            android:exported="true">
+        </activity>
     </application>
 
 </manifest>

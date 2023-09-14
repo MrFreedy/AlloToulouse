@@ -366,15 +366,15 @@
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:background="@drawable/transparent"
-                android:src="@drawable/ic_accueil_white" />
+                android:src="@drawable/communes" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:fontFamily="@font/montserrat_semibold"
-                android:text="Accueil"
-                android:textColor="@color/white"
+                android:text="Communes"
+                android:textColor="@color/black"
                 android:textSize="12dp" />
         </LinearLayout>
 

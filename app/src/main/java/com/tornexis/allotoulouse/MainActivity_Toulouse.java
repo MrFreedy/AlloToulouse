@@ -15,9 +15,16 @@ public class MainActivity_Toulouse extends AppCompatActivity {
 
         ImageButton dv_button = findViewById(R.id.dv_button);
         dv_button.setOnClickListener(v -> {
-            Intent add_intent = new Intent(MainActivity_Toulouse.this, dv_activity.class);
-            add_intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(add_intent);
+            Intent dv_intent = new Intent(MainActivity_Toulouse.this, dv_activity.class);
+            dv_intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(dv_intent);
+        });
+
+        ImageButton encombrant_button = findViewById(R.id.encombrant_button);
+        encombrant_button.setOnClickListener(v -> {
+            Intent encombrant_intent = new Intent(MainActivity_Toulouse.this, encombrant_activity.class);
+            encombrant_intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(encombrant_intent);
         });
 
         ImageButton return_commune_button = findViewById(R.id.return_commune_button);

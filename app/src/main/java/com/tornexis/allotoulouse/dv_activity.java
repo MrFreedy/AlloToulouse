@@ -126,8 +126,36 @@ public class dv_activity extends AppCompatActivity {
             }
         }
 
+        TextView liste_dechet_dv_title = findViewById(R.id.liste_dechet_dv_title);
+        LinearLayout liste_dechet_dv_underlline = findViewById(R.id.liste_dechet_dv_underlline);
+
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                (int) (270 * getApplicationContext().getResources().getDisplayMetrics().density),
+                (int) (3 * getApplicationContext().getResources().getDisplayMetrics().density)
+
+        );
+
+
         RadioButton radio_particulier = findViewById(R.id.radio_particulier);
         RadioButton radio_syndic = findViewById(R.id.radio_syndic);
+
+        radio_particulier.setOnCheckedChangeListener((compoundButton, b) -> {
+            if(b){
+                radio_syndic.setChecked(false);
+                liste_dechet_dv_title.setText("Vos déchets verts (1m³ max)");
+                liste_dechet_dv_underlline.setLayoutParams(params);
+
+            }
+        });
+
+        radio_syndic.setOnCheckedChangeListener((compoundButton, b) -> {
+            if(b){
+                radio_particulier.setChecked(false);
+                liste_dechet_dv_title.setText("Vos déchets verts (2m³ max)");
+                liste_dechet_dv_underlline.setLayoutParams(params);
+
+            }
+        });
 
 
         Button validate = findViewById(R.id.validate_dv);
@@ -147,6 +175,7 @@ public class dv_activity extends AppCompatActivity {
                                 popup_dv_intent.putExtra("nb_fagots",num_fagot);
                                 popup_dv_intent.putExtra("adresse",adresse);
                                 popup_dv_intent.putExtra("date",date);
+                                finish();
                                 startActivity(popup_dv_intent);
 
                             }else{

@@ -8,12 +8,18 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import org.w3c.dom.Text;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 public class activity_popup_dv extends AppCompatActivity {
+    public static int month;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,12 +52,57 @@ public class activity_popup_dv extends AppCompatActivity {
             finish();
         });
 
+        String[] date_temp = date.split("[ \n]");
+
         ImageButton agenda = findViewById(R.id.agenda_link_button);
         agenda.setOnClickListener(v->{
+
+            switch (date_temp[2]) {
+                case "Janvier":
+                    month = 0;
+                    break;
+                case "Février":
+                    month = 1;
+                    break;
+                case "Mars":
+                    month = 2;
+                    break;
+                case "Avril":
+                    month = 3;
+                    break;
+                case "Mai":
+                    month = 4;
+                    break;
+                case "Juin":
+                    month = 5;
+                    break;
+                case "Juillet":
+                    month = 6;
+                    break;
+                case "Août":
+                    month = 7;
+                    break;
+                case "Septembre":
+                    month = 8;
+                    break;
+                case "Octobre":
+                    month = 9;
+                    break;
+                case "Novembre":
+                    month = 10;
+                    break;
+                case "Décembre":
+                    month = 11;
+                    break;
+                default:
+                    month = -1;
+            }
+
+
             Calendar beginTime = Calendar.getInstance();
-            beginTime.set(2023, 10, 19, 7, 30);
+            beginTime.set(Integer.parseInt(date_temp[3]), month, Integer.parseInt(date_temp[1]), 5, 00);
             Calendar endTime = Calendar.getInstance();
-            endTime.set(2023, 10, 19, 8, 30);
+            endTime.set(Integer.parseInt(date_temp[3]), month, Integer.parseInt(date_temp[1]), 16, 00);
             Intent intent = new Intent(Intent.ACTION_INSERT)
                     .setData(CalendarContract.Events.CONTENT_URI)
                     .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, beginTime.getTimeInMillis())
@@ -59,8 +110,7 @@ public class activity_popup_dv extends AppCompatActivity {
                     .putExtra(CalendarContract.Events.TITLE, "RDV Déchets Verts")
                     .putExtra(CalendarContract.Events.DESCRIPTION, num_sac+"sacs et "+num_fagot+" fagots")
                     .putExtra(CalendarContract.Events.EVENT_LOCATION, adresse)
-                    .putExtra(CalendarContract.Events.AVAILABILITY, CalendarContract.Events.AVAILABILITY_BUSY)
-                    .putExtra(Intent.EXTRA_EMAIL, "rowan@example.com,trevor@example.com");
+                    .putExtra(CalendarContract.Events.AVAILABILITY, CalendarContract.Events.AVAILABILITY_BUSY);
             startActivity(intent);
         });
     }
