@@ -114,18 +114,17 @@ public class degradations_activity extends AppCompatActivity {
 
                     @Override
                     public void onTextChanged(CharSequence s, int start, int before, int count) {
-                        // Utilisez Geocoder pour rechercher des adresses en France basées sur le texte entré
                         Geocoder geocoder = new Geocoder(degradations_activity.this, Locale.getDefault());
 
                         try {
-                            double franceNorth = 51.124213; // Latitude nord de la France
-                            double franceSouth = 41.343824; // Latitude sud de la France
-                            double franceWest = -5.142561;  // Longitude ouest de la France
-                            double franceEast = 9.561547;   // Longitude est de la France
+                            double franceNorth = 51.124213;
+                            double franceSouth = 41.343824;
+                            double franceWest = -5.142561;
+                            double franceEast = 9.561547;
 
                             List<Address> addresses = geocoder.getFromLocationName(
                                     s.toString(),
-                                    10, // Limitez les résultats à 10
+                                    5,
                                     franceSouth,
                                     franceWest,
                                     franceNorth,
@@ -134,11 +133,10 @@ public class degradations_activity extends AppCompatActivity {
 
                             List<String> addressSuggestions = new ArrayList<>();
                             for (Address address : addresses) {
-                                String addressText = address.getAddressLine(0); // Obtenez la première ligne de l'adresse
+                                String addressText = address.getAddressLine(0);
                                 addressSuggestions.add(addressText);
                             }
 
-                            // Mettez à jour l'adaptateur de l'AutoCompleteTextView avec les suggestions d'adresse
                             adresse_adapter.clear();
                             adresse_adapter.addAll(addressSuggestions);
                             adresse_adapter.notifyDataSetChanged();
