@@ -1,4 +1,5 @@
 <resources>
+    <string name="mapbox_access_token">sk.eyJ1IjoibXJmcmVlZHkiLCJhIjoiY2xqMGFmNmJmMG03MTNxdDg5dGxhOTc2dyJ9.kCiy59f73Aa5x9YrI2lJmg</string>
     <string name="app_name">AlloToulouse</string>
     <string name="rdv">Mes rendez-vous</string>
 </resources>
