@@ -67,6 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:orientation="horizontal"
+            android:background="@drawable/transparent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -85,8 +86,8 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
                 android:src="@drawable/arrow_next"
-                android:scaleX="2"
-                android:scaleY="2"/>
+                android:scaleX="1.5"
+                android:scaleY="1.5"/>
 
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

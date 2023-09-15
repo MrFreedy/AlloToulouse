@@ -362,6 +362,7 @@
             app:layout_constraintEnd_toStartOf="@+id/linearLayout13">
 
             <ImageButton
+                android:id="@+id/commune_button"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"

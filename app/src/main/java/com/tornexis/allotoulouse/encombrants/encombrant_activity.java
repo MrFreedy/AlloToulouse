@@ -1,4 +1,4 @@
-package com.tornexis.allotoulouse;
+package com.tornexis.allotoulouse.encombrants;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -18,6 +18,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.tornexis.allotoulouse.R;
 
 public class encombrant_activity extends AppCompatActivity {
     Integer nb_canape = 0;
@@ -408,22 +410,39 @@ public class encombrant_activity extends AppCompatActivity {
             }
         });
 
-/*
+
         Button validate = findViewById(R.id.validate_dv);
         validate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(!adresse_completeTextView.getText().toString().trim().isEmpty()){
                     if(radio_particulier.isChecked() || radio_syndic.isChecked()){
-                        if(num_fagot==0 && num_sac==0){
-                            Toast.makeText(getApplicationContext(),"Veuillez saisir le nombre de sac et/ou fagots",Toast.LENGTH_SHORT).show();
+                        if(nb_armoire==0 && nb_bricolage==0 && nb_canape==0 && nb_deco==0 && nb_electromenager==0 && nb_etagere==0 && nb_fauteuil==0 && nb_frigo==0 && nb_frigo_americain==0 && nb_gros_volume==0 && nb_informatique==0 && nb_lit==0 && nb_machines==0 && nb_metallique==0 && nb_moyen_volume==0 && nb_petit_meuble==0 && nb_petit_volume==0){
+                            Toast.makeText(getApplicationContext(),"Veuillez saisir vos encombrants",Toast.LENGTH_SHORT).show();
                         }else{
                             if(date!=null || date ==""){
                                 String adresse = adresse_completeTextView.getText().toString() + "\n"+ complement_adresse.getText().toString();
-                                Intent popup_dv_intent = new Intent(encombrant_activity.this, activity_popup_dv.class);
+                                Intent popup_dv_intent = new Intent(encombrant_activity.this, encombrant_popup.class);
                                 popup_dv_intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                popup_dv_intent.putExtra("nb_sacs",num_sac);
-                                popup_dv_intent.putExtra("nb_fagots",num_fagot);
+                                popup_dv_intent.putExtra("nb_armoire",nb_armoire);
+                                popup_dv_intent.putExtra("nb_bricolage",nb_bricolage);
+                                popup_dv_intent.putExtra("nb_canape",nb_canape);
+                                popup_dv_intent.putExtra("nb_deco",nb_deco);
+                                popup_dv_intent.putExtra("nb_electromenager",nb_electromenager);
+                                popup_dv_intent.putExtra("nb_etagere",nb_etagere);
+                                popup_dv_intent.putExtra("nb_fauteuil",nb_fauteuil);
+                                popup_dv_intent.putExtra("nb_frigo",nb_frigo);
+                                popup_dv_intent.putExtra("nb_frigo_americain",nb_frigo_americain);
+                                popup_dv_intent.putExtra("nb_gros_volume",nb_gros_volume);
+                                popup_dv_intent.putExtra("nb_informatique",nb_informatique);
+                                popup_dv_intent.putExtra("nb_lit",nb_lit);
+                                popup_dv_intent.putExtra("nb_machines",nb_machines);
+                                popup_dv_intent.putExtra("nb_metallique",nb_metallique);
+                                popup_dv_intent.putExtra("nb_moyen_volume",nb_moyen_volume);
+                                popup_dv_intent.putExtra("nb_petit_meuble",nb_petit_meuble);
+                                popup_dv_intent.putExtra("nb_petit_volume",nb_petit_volume);
+                                popup_dv_intent.putExtra("nb_moyen_volume",nb_moyen_volume);
+                                popup_dv_intent.putExtra("nb_gros_volume",nb_gros_volume);
                                 popup_dv_intent.putExtra("adresse",adresse);
                                 popup_dv_intent.putExtra("date",date);
                                 finish();
@@ -441,7 +460,7 @@ public class encombrant_activity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Veuillez saisir une adresse d'intervention", Toast.LENGTH_SHORT).show();
                 }
             }
-        });*/
+        });
 
         ImageButton return_accueil_button = findViewById(R.id.return_accueil_button_encombrant);
         return_accueil_button.setOnClickListener(v->{

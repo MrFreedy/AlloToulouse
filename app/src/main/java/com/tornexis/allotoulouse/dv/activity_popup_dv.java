@@ -1,4 +1,4 @@
-package com.tornexis.allotoulouse;
+package com.tornexis.allotoulouse.dv;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+
+import com.tornexis.allotoulouse.R;
 
 import org.w3c.dom.Text;
 

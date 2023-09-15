@@ -1,6 +1,7 @@
 package com.tornexis.allotoulouse;
 
 import android.os.Bundle;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +21,11 @@ public class MainActivity_Metropole extends AppCompatActivity {
         }else{
             commune_text.setText("Commune de "+commune);
         }
+
+        ImageButton commune_button = findViewById(R.id.commune_button);
+        commune_button.setOnClickListener(v->{
+            finish();
+        });
 
     }
 }

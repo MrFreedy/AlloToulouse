@@ -6,6 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageButton;
 
+import com.tornexis.allotoulouse.degradations.degradations_activity;
+import com.tornexis.allotoulouse.dv.dv_activity;
+import com.tornexis.allotoulouse.encombrants.encombrant_activity;
+
 public class MainActivity_Toulouse extends AppCompatActivity {
 
     @Override
@@ -25,6 +29,13 @@ public class MainActivity_Toulouse extends AppCompatActivity {
             Intent encombrant_intent = new Intent(MainActivity_Toulouse.this, encombrant_activity.class);
             encombrant_intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(encombrant_intent);
+        });
+
+        ImageButton degradations_button = findViewById(R.id.degradations_button);
+        degradations_button.setOnClickListener(v -> {
+            Intent degradations_intent = new Intent(MainActivity_Toulouse.this, degradations_activity.class);
+            degradations_intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(degradations_intent);
         });
 
         ImageButton return_commune_button = findViewById(R.id.return_commune_button);
