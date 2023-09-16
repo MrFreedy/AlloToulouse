@@ -45,5 +45,12 @@ public class MainActivity_Toulouse extends AppCompatActivity {
             commune_intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(commune_intent);
         });
+
+        ImageButton carte_button = findViewById(R.id.carte_button);
+        carte_button.setOnClickListener(v->{
+            Intent carte_intent = new Intent(MainActivity_Toulouse.this, autour_activity.class);
+            carte_intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(carte_intent);
+        });
     }
 }

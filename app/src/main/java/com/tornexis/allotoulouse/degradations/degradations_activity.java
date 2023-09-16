@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -44,8 +45,10 @@ import com.tornexis.allotoulouse.R;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 public class degradations_activity extends AppCompatActivity {
     String type_degradation = null;
@@ -91,7 +94,7 @@ public class degradations_activity extends AppCompatActivity {
         mapView.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(@NonNull MapboxMap mapboxMap) {
-                mapboxMap.setStyle(new Style.Builder().fromUri("mapbox://styles/mrfreedy/clmg2mx9c01ib01r7hh794z5x"), new Style.OnStyleLoaded() {
+                mapboxMap.setStyle(new Style.Builder().fromUri("mapbox://styles/mrfreedy/clmlzd3ca000l01ns6c7hfabd"), new Style.OnStyleLoaded() {
                     @Override
                     public void onStyleLoaded(@NonNull Style style) {
                         mapboxMap.getUiSettings().setCompassEnabled(false);
@@ -107,6 +110,14 @@ public class degradations_activity extends AppCompatActivity {
 
                 adresse_completeTextView.setAdapter(adresse_adapter);
 
+                AutoCompleteTextView adresse_completeTextView = findViewById(R.id.autocomplete_adresse);
+                adresse_completeTextView.setAdapter(adresse_adapter);
+
+// Définissez un délai de 500 millisecondes (ou tout autre délai souhaité)
+                long searchDelayMillis = 100;
+                Handler searchHandler = new Handler();
+
+// Définissez un écouteur de texte pour surveiller les changements dans l'AutoCompleteTextView
                 adresse_completeTextView.addTextChangedListener(new TextWatcher() {
                     @Override
                     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -114,35 +125,39 @@ public class degradations_activity extends AppCompatActivity {
 
                     @Override
                     public void onTextChanged(CharSequence s, int start, int before, int count) {
-                        Geocoder geocoder = new Geocoder(degradations_activity.this, Locale.getDefault());
+                        // Supprimez les rappels précédents pour éviter une recherche inutile
+                        searchHandler.removeCallbacksAndMessages(null);
 
-                        try {
-                            double franceNorth = 51.124213;
-                            double franceSouth = 41.343824;
-                            double franceWest = -5.142561;
-                            double franceEast = 9.561547;
+                        // Utilisez un Handler pour déclencher la recherche après un délai
+                        searchHandler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                // Code de recherche à exécuter après le délai
+                                Geocoder geocoder = new Geocoder(degradations_activity.this);
 
-                            List<Address> addresses = geocoder.getFromLocationName(
-                                    s.toString(),
-                                    5,
-                                    franceSouth,
-                                    franceWest,
-                                    franceNorth,
-                                    franceEast
-                            );
+                                try {
+                                    List<Address> addresses = geocoder.getFromLocationName(s.toString(), 5); // Limitez les résultats à 5
 
-                            List<String> addressSuggestions = new ArrayList<>();
-                            for (Address address : addresses) {
-                                String addressText = address.getAddressLine(0);
-                                addressSuggestions.add(addressText);
+                                    List<String> addressSuggestions = new ArrayList<>();
+                                    for (Address address : addresses) {
+                                        String addressText = address.getAddressLine(0);
+                                        addressSuggestions.add(addressText);
+                                    }
+
+                                    runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            // Mettez à jour l'adaptateur de l'AutoCompleteTextView avec les suggestions d'adresse
+                                            adresse_adapter.clear();
+                                            adresse_adapter.addAll(addressSuggestions);
+                                            adresse_adapter.notifyDataSetChanged();
+                                        }
+                                    });
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
                             }
-
-                            adresse_adapter.clear();
-                            adresse_adapter.addAll(addressSuggestions);
-                            adresse_adapter.notifyDataSetChanged();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
+                        }, searchDelayMillis);
                     }
 
                     @Override
@@ -150,14 +165,14 @@ public class degradations_activity extends AppCompatActivity {
                     }
                 });
 
-                adresse_completeTextView.setThreshold(2);
-                // Définissez un écouteur de sélection pour l'AutoCompleteTextView
+                // Configurez le seuil pour l'AutoCompleteTextView
+                adresse_completeTextView.setThreshold(3);
+
                 adresse_completeTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         String selectedAddress = (String) parent.getItemAtPosition(position);
 
-                        // Utilisez Geocoder pour obtenir les coordonnées de l'adresse sélectionnée
                         Geocoder geocoder = new Geocoder(degradations_activity.this);
                         try {
                             List<Address> addresses = geocoder.getFromLocationName(selectedAddress, 1);
@@ -166,6 +181,9 @@ public class degradations_activity extends AppCompatActivity {
                                 Address selectedLocation = addresses.get(0);
                                 double latitude = selectedLocation.getLatitude();
                                 double longitude = selectedLocation.getLongitude();
+                                if(marker!= null){
+                                    mapboxMap.removeMarker(marker);
+                                }
 
                                 marker = mapboxMap.addMarker(new com.mapbox.mapboxsdk.annotations.MarkerOptions()
                                         .position(new LatLng(latitude, longitude))

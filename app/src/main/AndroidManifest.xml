@@ -87,6 +87,11 @@
             android:parentActivityName=".MainActivity_Toulouse"
             android:exported="true">
         </activity>
+        <activity android:name=".autour_activity"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".MainActivity_Toulouse"
+            android:exported="true">
+        </activity>
     </application>
     <meta-data
         android:name="com.google.android.geo.API_KEY"
