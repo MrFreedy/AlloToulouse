@@ -25,6 +25,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NavUtils;
 
 import com.tornexis.allotoulouse.R;
+import com.tornexis.allotoulouse.autour_activity;
+import com.tornexis.allotoulouse.dv.dv_activity;
 
 import java.io.IOException;
 
@@ -132,6 +134,14 @@ public class regard_deg_activity extends AppCompatActivity {
             } else {
                 finish();
             }
+        });
+
+        ImageButton return_accueil_button_deg_regard = findViewById(R.id.return_accueil_button_deg_regard);
+        return_accueil_button_deg_regard.setOnClickListener(v->{
+            finish();
+            Intent carte_intent = new Intent(regard_deg_activity.this, autour_activity.class);
+            carte_intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(carte_intent);
         });
     }
 

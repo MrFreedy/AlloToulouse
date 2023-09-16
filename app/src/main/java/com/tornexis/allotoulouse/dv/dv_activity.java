@@ -3,6 +3,7 @@ package com.tornexis.allotoulouse.dv;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -20,6 +21,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.tornexis.allotoulouse.R;
+import com.tornexis.allotoulouse.autour_activity;
 
 public class dv_activity extends AppCompatActivity {
     Integer num_sac = 0;
@@ -194,6 +196,14 @@ public class dv_activity extends AppCompatActivity {
         ImageButton return_accueil_button = findViewById(R.id.return_accueil_button_dv);
         return_accueil_button.setOnClickListener(v->{
             finish();
+        });
+
+        ImageButton return_carte_button_dv = findViewById(R.id.return_carte_button_dv);
+        return_carte_button_dv.setOnClickListener(v->{
+            finish();
+            Intent carte_intent = new Intent(dv_activity.this, autour_activity.class);
+            carte_intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(carte_intent);
         });
     }
 }

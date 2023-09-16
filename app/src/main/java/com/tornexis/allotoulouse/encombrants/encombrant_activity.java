@@ -2,6 +2,7 @@ package com.tornexis.allotoulouse.encombrants;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -20,6 +21,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.tornexis.allotoulouse.R;
+import com.tornexis.allotoulouse.autour_activity;
 
 public class encombrant_activity extends AppCompatActivity {
     Integer nb_canape = 0;
@@ -465,6 +467,14 @@ public class encombrant_activity extends AppCompatActivity {
         ImageButton return_accueil_button = findViewById(R.id.return_accueil_button_encombrant);
         return_accueil_button.setOnClickListener(v->{
             finish();
+        });
+
+        ImageButton return_carte_button_encombrant = findViewById(R.id.return_carte_button_encombrant);
+        return_carte_button_encombrant.setOnClickListener(v->{
+            finish();
+            Intent carte_intent = new Intent(encombrant_activity.this, autour_activity.class);
+            carte_intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(carte_intent);
         });
     }
 }

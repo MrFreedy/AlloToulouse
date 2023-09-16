@@ -42,6 +42,7 @@ import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
 import com.mapbox.mapboxsdk.maps.Style;
 import com.tornexis.allotoulouse.R;
+import com.tornexis.allotoulouse.autour_activity;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -87,7 +88,12 @@ public class degradations_activity extends AppCompatActivity {
         AutoCompleteTextView adresse_completeTextView = findViewById(R.id.autocomplete_adresse);
         ArrayAdapter<String> adresse_adapter = new ArrayAdapter<String>(this, R.layout.simple_spinner_dropdown_item);
 
-
+        ImageButton return_carte_button_degradations = findViewById(R.id.return_carte_button_degradations);
+        return_carte_button_degradations.setOnClickListener(v -> {
+            finish();
+            Intent carte_intent = new Intent(degradations_activity.this, autour_activity.class);
+            startActivity(carte_intent);
+        });
 
 
 

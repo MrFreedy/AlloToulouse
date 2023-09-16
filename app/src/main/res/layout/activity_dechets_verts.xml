@@ -425,7 +425,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:fontFamily="@font/montserrat_semibold"
-                android:text="Communes"
+                android:text="Accueil"
                 android:textColor="@color/black"
                 android:textSize="12dp" />
         </LinearLayout>
@@ -441,6 +441,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageButton
+                android:id="@+id/return_carte_button_dv"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"

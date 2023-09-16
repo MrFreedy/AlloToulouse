@@ -1,0 +1,22 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- État pressé -->
+    <item android:state_pressed="true">
+        <layer-list>
+            <!-- Fond du bouton avec le halo vert -->
+            <item>
+                <shape>
+                    <solid android:color="#a8a8a8" />
+                    <corners android:radius="360dp" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+
+    <!-- État normal -->
+    <item>
+        <shape>
+            <solid android:color="@color/white" />
+            <corners android:radius="360dp" />
+        </shape>
+    </item>
+</selector>

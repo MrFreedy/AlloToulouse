@@ -28,6 +28,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NavUtils;
 
 import com.tornexis.allotoulouse.R;
+import com.tornexis.allotoulouse.autour_activity;
 
 import java.io.IOException;
 
@@ -117,11 +118,18 @@ public class divers_deg_activity extends AppCompatActivity {
         ImageButton return_accueil_button = findViewById(R.id.return_accueil_button_encombrant);
         return_accueil_button.setOnClickListener(v->{
             if (parentIntent != null) {
-                startActivity(parentIntent);
                 finish();
+                startActivity(parentIntent);
             } else {
                 finish();
             }
+        });
+
+        ImageButton return_carte_button_deg_divers = findViewById(R.id.return_carte_button_deg_divers);
+        return_carte_button_deg_divers.setOnClickListener(v->{
+            finish();
+            Intent carte_intent = new Intent(divers_deg_activity.this, autour_activity.class);
+            startActivity(carte_intent);
         });
     }
 
