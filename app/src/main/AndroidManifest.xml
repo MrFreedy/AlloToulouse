@@ -96,6 +96,9 @@
             android:screenOrientation="portrait"
             android:parentActivityName=".MainActivity_Toulouse"
             android:exported="true"/>
+        <activity android:name=".FullscreenImageActivity"
+            android:screenOrientation="portrait"
+            android:exported="true"/>
     </application>
     <meta-data
         android:name="com.google.android.geo.API_KEY"

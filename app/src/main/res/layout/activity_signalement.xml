@@ -7,241 +7,317 @@
     android:background="@color/white"
     tools:context=".MainActivity_Toulouse">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent">
-
+        android:layout_height="700dp">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:background="@color/toulouse_pink" />
-        <GridLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="10dp"
-            android:rowCount="2"
-            android:columnCount="1">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
-                android:fontFamily="@font/montserrat_semibold"
-                android:text="Signalement\nn°101-537845"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="25dp"
-                android:layout_row="0"/>
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="horizontal"
-                android:layout_row="1">
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:background="@color/toulouse_pink" />
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="10dp"
+                android:rowCount="2"
+                android:columnCount="1">
+
                 <TextView
+                    android:id="@+id/id_signalement"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/montserrat"
-                    android:text="Statut: Pris en compte"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:text="Signalement\nn°101-537845"
+                    android:textAlignment="center"
                     android:textColor="@color/black"
-                    android:textSize="15dp"
-                    android:textStyle="bold" />
-                <ImageView
+                    android:textSize="22dp"
+                    android:layout_row="0"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal"
+                    android:layout_row="1">
+                    <ImageView
+                        android:id="@+id/image_status_signalement"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/pris_en_compte"/>
+                    <TextView
+                        android:id="@+id/text_status_signalement"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat"
+                        android:text="Demande prise en compte"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+
+            </GridLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/prise_en_compte"/>
-            </LinearLayout>
-
-
-        </GridLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:text="Date de signalement"
+                        android:textColor="@color/black"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="197dp"
+                    android:layout_height="3dp"
+                    android:background="@color/toulouse_pink" />
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/montserrat_semibold"
-                    android:text="Date de signalement"
-                    android:textColor="@color/black"
-                    android:textSize="18dp"
-                    android:textStyle="bold" />
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/date_signalement"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat"
+                        android:text="Jeudi 07 Septembre 2023 à 11h27"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:text="Type de signalement"
+                        android:textColor="@color/black"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="197dp"
+                    android:layout_height="3dp"
+                    android:background="@color/toulouse_pink" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/type_signalement"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat"
+                        android:text="Eclairage défectueux"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="197dp"
-                android:layout_height="3dp"
-                android:background="@color/toulouse_pink" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:text="Description du problème"
+                        android:textColor="@color/black"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="235dp"
+                    android:layout_height="3dp"
+                    android:background="@color/toulouse_pink" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/description_signalement"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="10dp"
+                        android:fontFamily="@font/montserrat"
+                        android:justificationMode="inter_word"
+                        android:text="Depuis quelque jours, l'éclairage de la rue ne fonctionne plus. Il est impossible de circuler dans la rue la nuit."
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:text="Photo(s) du problème"
+                        android:textColor="@color/black"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="205dp"
+                    android:layout_height="3dp"
+                    android:background="@color/toulouse_pink" />
+
+                <LinearLayout
+                    android:id="@+id/photo_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/text_photo_signalement"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="10dp"
+                        android:fontFamily="@font/montserrat"
+                        android:justificationMode="inter_word"
+                        android:text="Aucune photo"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+                    <HorizontalScrollView
+                        android:id="@+id/photo_horizontalScrollView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp">
+
+                        <LinearLayout
+                            android:id="@+id/photo_linearlayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                        </LinearLayout>
+
+                    </HorizontalScrollView>
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:text="Adresse d'intervention"
+                        android:textColor="@color/black"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="210dp"
+                    android:layout_height="3dp"
+                    android:background="@color/toulouse_pink" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/adresse_signalement"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat"
+                        android:text="55 Allée de Barcelone, 31000 Toulouse"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+            <com.mapbox.mapboxsdk.maps.MapView
+                android:id="@+id/mapView"
+                android:layout_width="match_parent"
+                android:layout_marginHorizontal="10dp"
+                android:layout_height="200dp"
+                app:mapbox_cameraTargetLat="43.604453"
+                app:mapbox_cameraTargetLng="1.4439976"
+                app:mapbox_cameraZoom="13.0"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
                 android:layout_marginTop="10dp"
-                android:orientation="horizontal">
-                <TextView
+                android:orientation="vertical">
+                <Button
+                    android:id="@+id/close_signalement"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/montserrat"
-                    android:text="Lundi 18 Septembre 2023 à 11h27"
-                    android:textColor="@color/black"
-                    android:textSize="15dp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/montserrat_semibold"
-                    android:text="Type de signalement"
-                    android:textColor="@color/black"
-                    android:textSize="18dp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="197dp"
-                android:layout_height="3dp"
-                android:background="@color/toulouse_pink" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/montserrat"
-                    android:text="Eclairage défectueux"
-                    android:textColor="@color/black"
-                    android:textSize="15dp"
-                    android:textStyle="bold" />
+                    android:layout_gravity="center"
+                    android:textColor="@color/white"
+                    android:background="@drawable/button_general"
+                    android:text="Fermer"/>
             </LinearLayout>
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/montserrat_semibold"
-                    android:text="Description du problème"
-                    android:textColor="@color/black"
-                    android:textSize="18dp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="235dp"
-                android:layout_height="3dp"
-                android:background="@color/toulouse_pink" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/montserrat"
-                    android:text="Depuis quelque jours, l'éclairage de la rue ne fonctionne plus. Il est impossible de circuler dans la rue la nuit."
-                    android:textColor="@color/black"
-                    android:textSize="15dp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <com.mapbox.mapboxsdk.maps.MapView
-            android:id="@+id/mapView"
-            android:layout_width="match_parent"
-            android:layout_marginHorizontal="10dp"
-            android:layout_height="250dp"
-            app:mapbox_cameraTargetLat="43.604453"
-            app:mapbox_cameraTargetLng="1.4439976"
-            app:mapbox_cameraZoom="13.0"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/montserrat_semibold"
-                    android:text="Adresse d'intervention"
-                    android:textColor="@color/black"
-                    android:textSize="18dp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="210dp"
-                android:layout_height="3dp"
-                android:background="@color/toulouse_pink" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/montserrat"
-                    android:text="55 Allée de Barcelone, 31000 Toulouse"
-                    android:textColor="@color/black"
-                    android:textSize="15dp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-        </LinearLayout>
+    </ScrollView>
 
 
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:orientation="vertical">
-            <Button
-                android:id="@+id/close_signalement"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textColor="@color/white"
-                android:background="@drawable/button_general"
-                android:text="Fermer"/>
-        </LinearLayout>
-    </LinearLayout>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="80dp"
