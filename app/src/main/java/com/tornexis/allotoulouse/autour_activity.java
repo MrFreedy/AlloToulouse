@@ -10,6 +10,8 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Address;
 import android.location.Geocoder;
+import android.location.Location;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
@@ -39,11 +41,14 @@ import com.tornexis.allotoulouse.encombrants.encombrant_activity;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class autour_activity extends AppCompatActivity {
     private MapView mapView;
     private PermissionsManager permissionsManager;
     private LocationComponent locationComponent;
+    private float latitude = 0.0f;
+    private float longitude = 0.0f;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,12 +77,26 @@ public class autour_activity extends AppCompatActivity {
                     }
                 });
             }
+
         });
 
         ImageButton return_accueil_button_autour = findViewById(R.id.return_accueil_button_autour);
         return_accueil_button_autour.setOnClickListener(v->{
             finish();
         });
+
+        ImageButton location = findViewById(R.id.location);
+        location.setOnClickListener(v -> {
+            /*mapView.getMapAsync(mapboxMap -> {
+                mapboxMap.animateCamera(com.mapbox.mapboxsdk.camera.CameraUpdateFactory.newLatLngZoom(new LatLng(latitude,longitude), 15));
+            });
+            String uri = String.format(Locale.ENGLISH, "geo:?q=%f,%f", latitude, longitude);
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+            startActivity(intent);*/
+        });
+
+
+
 
 
     }

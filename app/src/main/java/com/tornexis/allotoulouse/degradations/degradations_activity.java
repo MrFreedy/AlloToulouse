@@ -100,7 +100,11 @@ public class degradations_activity extends AppCompatActivity {
         mapView.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(@NonNull MapboxMap mapboxMap) {
-                mapboxMap.setStyle(new Style.Builder().fromUri("mapbox://styles/mrfreedy/clmlzd3ca000l01ns6c7hfabd"), new Style.OnStyleLoaded() {
+                adresse_completeTextView.setAdapter(adresse_adapter);
+
+                AutoCompleteTextView adresse_completeTextView = findViewById(R.id.autocomplete_adresse);
+                adresse_completeTextView.setAdapter(adresse_adapter);
+                mapboxMap.setStyle(new Style.Builder().fromUri("mapbox://styles/mrfreedy/clmm3eadx000y01qnhoxy4k4v"), new Style.OnStyleLoaded() {
                     @Override
                     public void onStyleLoaded(@NonNull Style style) {
                         mapboxMap.getUiSettings().setCompassEnabled(false);
@@ -111,13 +115,11 @@ public class degradations_activity extends AppCompatActivity {
 
                         enableLocationComponent(style,mapboxMap);
 
+                        adresse_completeTextView.setText("1 Pl. du Capitole, 31000 Toulouse, France");
+
                     }
                 });
 
-                adresse_completeTextView.setAdapter(adresse_adapter);
-
-                AutoCompleteTextView adresse_completeTextView = findViewById(R.id.autocomplete_adresse);
-                adresse_completeTextView.setAdapter(adresse_adapter);
 
 // Définissez un délai de 500 millisecondes (ou tout autre délai souhaité)
                 long searchDelayMillis = 100;
