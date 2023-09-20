@@ -92,6 +92,10 @@
             android:parentActivityName=".MainActivity_Toulouse"
             android:exported="true">
         </activity>
+        <activity android:name=".signalement_activity"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".MainActivity_Toulouse"
+            android:exported="true"/>
     </application>
     <meta-data
         android:name="com.google.android.geo.API_KEY"

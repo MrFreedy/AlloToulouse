@@ -3,8 +3,13 @@ package com.tornexis.allotoulouse;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.tornexis.allotoulouse.degradations.degradations_activity;
 import com.tornexis.allotoulouse.dv.dv_activity;
@@ -52,5 +57,36 @@ public class MainActivity_Toulouse extends AppCompatActivity {
             carte_intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(carte_intent);
         });
+
+        HorizontalScrollView horizontalScrollView = findViewById(R.id.demandes_scrollview);
+        LinearLayout linearLayout = findViewById(R.id.scrollview_container_demandes); // L'ID de votre LinearLayout principal
+
+        final View[] previouslySelectedChild = {null}; // Pour conserver une référence à l'enfant précédemment sélectionné
+
+        for (int i = 0; i < linearLayout.getChildCount(); i++) {
+            View child = linearLayout.getChildAt(i);
+
+            if (child instanceof LinearLayout) {
+                child.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        Intent signalement_intent = new Intent(MainActivity_Toulouse.this, signalement_activity.class);
+                        signalement_intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(signalement_intent);
+
+                        /*if (previouslySelectedChild[0] != null) {
+                            previouslySelectedChild[0].setBackgroundResource(R.drawable.card);
+                            TextView previousDateTextView = (TextView) ((LinearLayout) previouslySelectedChild[0]).getChildAt(0);
+                            previousDateTextView.setTextColor(Color.BLACK);
+                        }
+
+                        previouslySelectedChild[0] = child;
+
+                        child.setBackgroundResource(R.drawable.card_selected);*/
+                    }
+                });
+            }
+        }
     }
 }
