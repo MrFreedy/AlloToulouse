@@ -60,9 +60,11 @@ public class signalement_activity extends AppCompatActivity {
         String description_signalement = getIntent().getStringExtra("description_signalement");
         String adresse_signalement = getIntent().getStringExtra("adresse_signalement");
         String image_signalement = getIntent().getStringExtra("image_signalement");
+        String status_signalement = getIntent().getStringExtra("text_status_signalement");
 
         TextView id_signalement_text = findViewById(R.id.id_signalement);
         ImageView image_status_signalement_view = findViewById(R.id.image_status_signalement);
+        TextView text_status_signalement = findViewById(R.id.text_status_signalement);
         TextView type_signalement_text = findViewById(R.id.type_signalement);
         TextView date_signalement_text = findViewById(R.id.date_signalement);
         TextView description_signalement_text = findViewById(R.id.description_signalement);
@@ -116,6 +118,7 @@ public class signalement_activity extends AppCompatActivity {
                             description_signalement_text.setText(description_signalement);
                             adresse_signalement_text.setText(adresse_signalement);
                             image_status_signalement_view.setImageResource(R.drawable.prise_en_compte);
+                            text_status_signalement.setText(status_signalement);
                             LinearLayout photo_layout = findViewById(R.id.photo_layout);
                             TextView text_photo_signalement = findViewById(R.id.text_photo_signalement);
                             photo_layout.removeView(text_photo_signalement);
