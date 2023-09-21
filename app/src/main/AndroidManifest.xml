@@ -46,7 +46,7 @@
         </activity>
         <activity android:name=".dv.activity_popup_dv"
             android:screenOrientation="portrait"
-            android:theme="@style/ModalStyle"
+            android:theme="@style/ModalStyle_dv_encombrant"
             android:label="Rendez-vous confirmé"
             android:exported="true">
         </activity>
@@ -62,7 +62,7 @@
         </activity>
         <activity android:name=".encombrants.encombrant_popup"
             android:screenOrientation="portrait"
-            android:theme="@style/ModalStyle"
+            android:theme="@style/ModalStyle_dv_encombrant"
             android:label="Rendez-vous confirmé"
             android:exported="true">
         </activity>
@@ -99,6 +99,12 @@
         <activity android:name=".FullscreenImageActivity"
             android:screenOrientation="portrait"
             android:exported="true"/>
+        <activity android:name=".rechercher"
+            android:screenOrientation="portrait"
+            android:theme="@style/ModalStyle"
+            android:label=""
+            android:exported="true">
+        </activity>
     </application>
     <meta-data
         android:name="com.google.android.geo.API_KEY"

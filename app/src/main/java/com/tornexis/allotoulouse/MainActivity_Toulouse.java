@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.tornexis.allotoulouse.degradations.degradations_activity;
+import com.tornexis.allotoulouse.dv.activity_popup_dv;
 import com.tornexis.allotoulouse.dv.dv_activity;
 import com.tornexis.allotoulouse.encombrants.encombrant_activity;
 
@@ -57,6 +58,14 @@ public class MainActivity_Toulouse extends AppCompatActivity {
             carte_intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(carte_intent);
         });
+
+        ImageButton rechercher = findViewById(R.id.rechercher_button);
+        rechercher.setOnClickListener(v->{
+            Intent rechercher_intent = new Intent(MainActivity_Toulouse.this, rechercher.class);
+            rechercher_intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(rechercher_intent);
+        });
+
 
         HorizontalScrollView horizontalScrollView = findViewById(R.id.demandes_scrollview);
         LinearLayout linearLayout = findViewById(R.id.scrollview_container_demandes);
