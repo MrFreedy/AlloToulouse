@@ -17,8 +17,8 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
-        android:background="@drawable/button_dechet_vert"
-        android:src="@drawable/feuille"
+        android:background="@drawable/button_white"
+        android:src="@drawable/close"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

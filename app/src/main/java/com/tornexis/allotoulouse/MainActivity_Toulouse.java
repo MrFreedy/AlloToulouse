@@ -107,7 +107,7 @@ public class MainActivity_Toulouse extends AppCompatActivity {
                             signalement_intent.putExtra("date_signalement", "Mardi 05 Septembre à 14h14");
                             signalement_intent.putExtra("adresse_signalement", "14 Rue Boubée, 31500 Toulouse");
                             signalement_intent.putExtra("description_signalement", "Une voiture ne bouge plus depuis plus de 15 jours.\nCitroën C3 Noire, immatriculée AB123CD");
-                            signalement_intent.putExtra("image_status_signalement", "suivi");
+                            signalement_intent.putExtra("image_status_signalement", "@drawable/prise_en_compte");
                             signalement_intent.putExtra("image_signalement", "citroen");
                             startActivity(signalement_intent);
                         }

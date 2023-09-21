@@ -59,10 +59,10 @@ public class signalement_activity extends AppCompatActivity {
         String date_signalement = getIntent().getStringExtra("date_signalement");
         String description_signalement = getIntent().getStringExtra("description_signalement");
         String adresse_signalement = getIntent().getStringExtra("adresse_signalement");
-        String image_status_signalement = getIntent().getStringExtra("image_status_signalement");
         String image_signalement = getIntent().getStringExtra("image_signalement");
 
         TextView id_signalement_text = findViewById(R.id.id_signalement);
+        ImageView image_status_signalement_view = findViewById(R.id.image_status_signalement);
         TextView type_signalement_text = findViewById(R.id.type_signalement);
         TextView date_signalement_text = findViewById(R.id.date_signalement);
         TextView description_signalement_text = findViewById(R.id.description_signalement);
@@ -115,47 +115,39 @@ public class signalement_activity extends AppCompatActivity {
                             date_signalement_text.setText(date_signalement);
                             description_signalement_text.setText(description_signalement);
                             adresse_signalement_text.setText(adresse_signalement);
+                            image_status_signalement_view.setImageResource(R.drawable.prise_en_compte);
                             LinearLayout photo_layout = findViewById(R.id.photo_layout);
                             TextView text_photo_signalement = findViewById(R.id.text_photo_signalement);
                             photo_layout.removeView(text_photo_signalement);
 
 
-                            // Récupérez la ressource de l'image Citroen
                             Drawable citroenDrawable = getResources().getDrawable(R.drawable.citroen);
                             Bitmap citroenBitmap = ((BitmapDrawable) citroenDrawable).getBitmap();
 
-// Redimensionnez l'image Citroen
-                            Bitmap resizedCitroenBitmap = Bitmap.createScaledBitmap(citroenBitmap, 200, 200, true);
+                            Bitmap resizedCitroenBitmap = Bitmap.createScaledBitmap(citroenBitmap, 300, 300, true);
 
-// Créez un ImageView pour afficher l'image redimensionnée Citroen
                             ImageView citroenImageView = new ImageView(signalement_activity.this);
-                            citroenImageView.setLayoutParams(new LinearLayout.LayoutParams(200, 200));
+                            citroenImageView.setLayoutParams(new LinearLayout.LayoutParams(300, 300));
                             citroenImageView.setImageBitmap(resizedCitroenBitmap);
 
-// Ajoutez l'ImageView de Citroen à votre HorizontalScrollView
                             HorizontalScrollView horizontalScrollView = findViewById(R.id.photo_horizontalScrollView);
                             LinearLayout linearLayout = horizontalScrollView.findViewById(R.id.photo_linearlayout);
                             linearLayout.addView(citroenImageView);
 
-// Récupérez la ressource de l'image Renault
                             Drawable renaultDrawable = getResources().getDrawable(R.drawable.citroen);
                             Bitmap renaultBitmap = ((BitmapDrawable) renaultDrawable).getBitmap();
 
-// Redimensionnez l'image Renault
-                            Bitmap resizedRenaultBitmap = Bitmap.createScaledBitmap(renaultBitmap, 200, 200, true);
+                            Bitmap resizedRenaultBitmap = Bitmap.createScaledBitmap(renaultBitmap, 300, 300, true);
 
-// Créez un ImageView pour afficher l'image redimensionnée Renault
                             ImageView renaultImageView = new ImageView(signalement_activity.this);
-                            renaultImageView.setLayoutParams(new LinearLayout.LayoutParams(200, 200));
+                            renaultImageView.setLayoutParams(new LinearLayout.LayoutParams(300, 300));
                             renaultImageView.setImageBitmap(resizedRenaultBitmap);
 
-// Ajoutez l'ImageView de Renault à votre HorizontalScrollView
                             linearLayout.addView(renaultImageView);
 
                             citroenImageView.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    // Créez une Intent pour ouvrir l'image Citroen en plein écran
                                     Intent fullscreenIntent = new Intent(signalement_activity.this, FullscreenImageActivity.class);
                                     fullscreenIntent.putExtra("imageResourceId", R.drawable.citroen);
                                     startActivity(fullscreenIntent);
@@ -165,7 +157,6 @@ public class signalement_activity extends AppCompatActivity {
                             renaultImageView.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    // Créez une Intent pour ouvrir l'image Renault en plein écran
                                     Intent fullscreenIntent = new Intent(signalement_activity.this, FullscreenImageActivity.class);
                                     fullscreenIntent.putExtra("imageResourceId", R.drawable.citroen);
                                     startActivity(fullscreenIntent);
