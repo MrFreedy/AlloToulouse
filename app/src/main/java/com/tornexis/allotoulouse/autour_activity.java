@@ -114,6 +114,7 @@ public class autour_activity extends AppCompatActivity {
                 drawerLayout.closeDrawer(GravityCompat.START);
             } else {
                 drawerLayout.openDrawer(GravityCompat.START);
+
             }
         });
 
