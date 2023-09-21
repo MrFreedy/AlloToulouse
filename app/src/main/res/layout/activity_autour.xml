@@ -15,64 +15,64 @@
         android:background="@color/toulouse_pink"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.mapbox.mapboxsdk.maps.MapView
-        android:id="@+id/mapView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
-        app:mapbox_cameraTargetLat="43.604453"
-        app:mapbox_cameraTargetLng="1.4439976"
-        app:mapbox_cameraZoom="13.0" />
-
-    <ImageButton
-        android:id="@+id/location"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/button_white"
-        android:src="@drawable/location_off"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-
-
     <androidx.drawerlayout.widget.DrawerLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/drawer_layout"
-        android:layout_width="250dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".signalement_activity">
 
         <!-- Contenu principal -->
-        <RelativeLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <!-- Ajoutez ici votre contenu principal -->
 
+            <com.mapbox.mapboxsdk.maps.MapView
+                android:id="@+id/mapView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:mapbox_cameraTargetLat="43.604453"
+                app:mapbox_cameraTargetLng="1.4439976"
+                app:mapbox_cameraZoom="13.0" />
+
             <ImageButton
                 android:id="@+id/menu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="50dp"
                 android:background="@drawable/button_white"
                 android:src="@drawable/menu"
-                app:layout_constraintStart_toStartOf="parent"/>
-        </RelativeLayout>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="110dp"
+                android:background="@drawable/button_white"
+                android:src="@drawable/location_off"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <!-- Menu latéral -->
         <com.google.android.material.navigation.NavigationView
             android:id="@+id/navigation_view"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="start"
+            android:background="@color/white"
+            app:itemBackground="@drawable/drawer_item_background_selector"
+            app:itemTextColor="@color/black"
             app:menu="@menu/menu_items"/>
 
     </androidx.drawerlayout.widget.DrawerLayout>
+
+
 
 
     <androidx.constraintlayout.widget.ConstraintLayout

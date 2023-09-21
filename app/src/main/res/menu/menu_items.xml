@@ -1,7 +1,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- Titre du groupe -->
-    <group>
+    <group android:id="@+id/stationnement_group">
         <item
+            android:id="@+id/stationnement_title"
             android:title="Stationnement"
             android:checkable="false"
             android:enabled="false" />
@@ -19,8 +20,9 @@
             android:title="Horodateurs"
             android:icon="@drawable/horodateurs"/>
     </group>
-    <group >
+    <group android:id="@+id/dechets_group">
         <item
+            android:id="@+id/dechets_title"
             android:title="Déchets"
             android:checkable="false"
             android:enabled="false" />
@@ -38,8 +40,9 @@
             android:icon="@drawable/verre"/>
     </group>
 
-    <group>
+    <group android:id="@+id/circulation_group">
         <item
+            android:id="@+id/circulation_title"
             android:title="Circulation"
             android:checkable="false"
             android:enabled="false" />
@@ -51,8 +54,9 @@
             android:icon="@drawable/bornes"/>
     </group>
 
-    <group>
+    <group android:id="@+id/services_group">
         <item
+            android:id="@+id/services_title"
             android:title="Services"
             android:checkable="false"
             android:enabled="false" />

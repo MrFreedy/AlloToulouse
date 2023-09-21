@@ -23,7 +23,9 @@ import android.view.View;
 import android.view.animation.BounceInterpolator;
 import android.widget.AdapterView;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -57,10 +59,6 @@ public class autour_activity extends AppCompatActivity {
     private LocationComponent locationComponent;
     private float latitude = 0.0f;
     private float longitude = 0.0f;
-
-    private static final int PMR_ID = R.id.pmr;
-    private static final int HORODATEUR_ID = R.id.horodateur;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,15 +94,17 @@ public class autour_activity extends AppCompatActivity {
             finish();
         });
 
+
+
         ImageButton location = findViewById(R.id.location);
         location.setOnClickListener(v -> {
-            /*mapView.getMapAsync(mapboxMap -> {
+            mapView.getMapAsync(mapboxMap -> {
+                latitude = (float) mapboxMap.getLocationComponent().getLastKnownLocation().getLatitude();
+                longitude = (float) mapboxMap.getLocationComponent().getLastKnownLocation().getLongitude();
                 mapboxMap.animateCamera(com.mapbox.mapboxsdk.camera.CameraUpdateFactory.newLatLngZoom(new LatLng(latitude,longitude), 15));
             });
-            String uri = String.format(Locale.ENGLISH, "geo:?q=%f,%f", latitude, longitude);
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
-            startActivity(intent);*/
         });
+
         ImageButton menu = findViewById(R.id.menu);
         DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigation_view = findViewById(R.id.navigation_view);
@@ -114,6 +114,7 @@ public class autour_activity extends AppCompatActivity {
                 drawerLayout.closeDrawer(GravityCompat.START);
             } else {
                 drawerLayout.openDrawer(GravityCompat.START);
+                navigation_view.setItemIconTintList(null);
 
             }
         });
@@ -141,36 +142,12 @@ public class autour_activity extends AppCompatActivity {
                     }else{
                         menuItem.setChecked(true);
                         mapView.getMapAsync(mapboxMap -> {
-
-                                    mapboxMap.addMarker(new com.mapbox.mapboxsdk.annotations.MarkerOptions()
-                                            .position(new LatLng(43.603529f, 1.442262f))
-                                            .icon(com.mapbox.mapboxsdk.annotations.IconFactory.getInstance(autour_activity.this).fromResource(R.drawable.pmr))
-                                    );
-                                    MapboxMap.OnMarkerClickListener onMarkerClickListener = new MapboxMap.OnMarkerClickListener() {
-                                        @Override
-                                        public boolean onMarkerClick(@NonNull Marker marker) {
-                                            Toast.makeText(autour_activity.this, "34 Rue de la pomme", Toast.LENGTH_SHORT).show();
-                                            return false;
-                                        }
-                                    };
-                        });
-                        mapView.getMapAsync(mapboxMap -> {
-
-                            mapboxMap.addMarker(new com.mapbox.mapboxsdk.annotations.MarkerOptions()
-                                    .position(new LatLng(43.605630f, 1.441683f))
-                                    .icon(com.mapbox.mapboxsdk.annotations.IconFactory.getInstance(autour_activity.this).fromResource(R.drawable.pmr))
-                            );
-                            MapboxMap.OnMarkerClickListener onMarkerClickListener = new MapboxMap.OnMarkerClickListener() {
-                                @Override
-                                public boolean onMarkerClick(@NonNull Marker marker) {
-                                    Toast.makeText(autour_activity.this, "55 Allée de Barcelone Rue de la pomme", Toast.LENGTH_SHORT).show();
-                                    return false;
-                                }
-                            };
-                        });
-                        /*mapView.getMapAsync(mapboxMap -> {
                             mapboxMap.addMarker(new com.mapbox.mapboxsdk.annotations.MarkerOptions()
                                     .position(new LatLng(43.603529f, 1.442262f))
+                                    .icon(com.mapbox.mapboxsdk.annotations.IconFactory.getInstance(autour_activity.this).fromResource(R.drawable.pmr))
+                            );
+                            mapboxMap.addMarker(new com.mapbox.mapboxsdk.annotations.MarkerOptions()
+                                    .position(new LatLng(43.605630f, 1.441683f))
                                     .icon(com.mapbox.mapboxsdk.annotations.IconFactory.getInstance(autour_activity.this).fromResource(R.drawable.pmr))
                             );
                             mapboxMap.addMarker(new com.mapbox.mapboxsdk.annotations.MarkerOptions()
@@ -189,7 +166,7 @@ public class autour_activity extends AppCompatActivity {
                                     .position(new LatLng(43.606170f, 1.447397f))
                                     .icon(com.mapbox.mapboxsdk.annotations.IconFactory.getInstance(autour_activity.this).fromResource(R.drawable.pmr))
                             );
-                        });*/
+                        });
                     }
 
                 }else if(id==R.id.horodateur){
@@ -239,11 +216,7 @@ public class autour_activity extends AppCompatActivity {
                                     .icon(com.mapbox.mapboxsdk.annotations.IconFactory.getInstance(autour_activity.this).fromResource(R.drawable.selective))
                             );
                             mapboxMap.addMarker(new com.mapbox.mapboxsdk.annotations.MarkerOptions()
-                                    .position(new LatLng(43.603517f, 1.445642f))
-                                    .icon(com.mapbox.mapboxsdk.annotations.IconFactory.getInstance(autour_activity.this).fromResource(R.drawable.selective))
-                            );
-                            mapboxMap.addMarker(new com.mapbox.mapboxsdk.annotations.MarkerOptions()
-                                    .position(new LatLng(43.605682f, 1.444518f))
+                                    .position(new LatLng(43.603571f, 1.445642f))
                                     .icon(com.mapbox.mapboxsdk.annotations.IconFactory.getInstance(autour_activity.this).fromResource(R.drawable.selective))
                             );
                             mapboxMap.addMarker(new com.mapbox.mapboxsdk.annotations.MarkerOptions()
@@ -366,11 +339,367 @@ public class autour_activity extends AppCompatActivity {
                     }
                 }
 
+                mapView.getMapAsync(mapboxMap -> {
+                    mapboxMap.setOnMarkerClickListener(new MapboxMap.OnMarkerClickListener() {
+                        @Override
+                        public boolean onMarkerClick(@NonNull Marker marker) {
+                            double lat = marker.getPosition().getLatitude();
+                            double lon = marker.getPosition().getLongitude();
+                            System.out.println(lat);
+                            System.out.println(lon);
+                            System.out.println(String.format("%f,%f",lat,lon));
 
-                // Fermez le menu latéral après la sélection
+                            switch (String.format("%f,%f",lat,lon)){
+                                //Emplacement PMR
+                                case "43,603531,1,442262":
+
+                                case "43,603546,1,442273":
+
+                                case "43,603550,1,442275":
+                                    mapboxMap.setInfoWindowAdapter(new MapboxMap.InfoWindowAdapter() {
+                                        @Override
+                                        public View getInfoWindow(@NonNull Marker marker) {
+                                            View view = getLayoutInflater().inflate(R.layout.info_window, null);
+                                            TextView title = view.findViewById(R.id.titleTextView);
+                                            title.setText("33 rue Léon Gambetta, 31000 Toulouse");
+
+                                            Button itineraire = view.findViewById(R.id.itineraire);
+                                            itineraire.setOnClickListener(v -> {
+                                                String uri = String.format(Locale.ENGLISH, "geo:?q=%f,%f", lat, lon);
+                                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+                                                startActivity(intent);
+                                            });
+                                            return view;
+                                        }
+                                    });
+                                    break;
+                                case "43,605629,1,441683":
+                                    mapboxMap.setInfoWindowAdapter(new MapboxMap.InfoWindowAdapter() {
+                                        @Override
+                                        public View getInfoWindow(@NonNull Marker marker) {
+                                            View view = getLayoutInflater().inflate(R.layout.info_window, null);
+                                            TextView title = view.findViewById(R.id.titleTextView);
+                                            title.setText("28 rue des Lois, 31000 Toulouse");
+
+                                            Button itineraire = view.findViewById(R.id.itineraire);
+                                            itineraire.setOnClickListener(v -> {
+                                                String uri = String.format(Locale.ENGLISH, "geo:?q=%f,%f", lat, lon);
+                                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+                                                startActivity(intent);
+                                            });
+                                            return view;
+                                        }
+                                    });
+                                    break;
+
+                                case "43,605682,1,444518":
+                                    mapboxMap.setInfoWindowAdapter(new MapboxMap.InfoWindowAdapter() {
+                                        @Override
+                                        public View getInfoWindow(@NonNull Marker marker) {
+                                            View view = getLayoutInflater().inflate(R.layout.info_window, null);
+                                            TextView title = view.findViewById(R.id.titleTextView);
+                                            title.setText("4 rue John Fitzgerald Kennedy, 31000 Toulouse");
+
+                                            Button itineraire = view.findViewById(R.id.itineraire);
+                                            itineraire.setOnClickListener(v -> {
+                                                String uri = String.format(Locale.ENGLISH, "geo:?q=%f,%f", lat, lon);
+                                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+                                                startActivity(intent);
+                                            });
+                                            return view;
+                                        }
+                                    });
+                                    break;
+
+                                case "43,605713,1,444940":
+                                    mapboxMap.setInfoWindowAdapter(new MapboxMap.InfoWindowAdapter() {
+                                        @Override
+                                        public View getInfoWindow(@NonNull Marker marker) {
+                                            View view = getLayoutInflater().inflate(R.layout.info_window, null);
+                                            TextView title = view.findViewById(R.id.titleTextView);
+                                            title.setText("6 rue John Fitzgerald Kennedy, 31000 Toulouse");
+
+                                            Button itineraire = view.findViewById(R.id.itineraire);
+                                            itineraire.setOnClickListener(v -> {
+                                                String uri = String.format(Locale.ENGLISH, "geo:?q=%f,%f", lat, lon);
+                                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+                                                startActivity(intent);
+                                            });
+                                            return view;
+                                        }
+                                    });
+                                    break;
+
+                                case "43,605888,1,447436":
+                                    mapboxMap.setInfoWindowAdapter(new MapboxMap.InfoWindowAdapter() {
+                                        @Override
+                                        public View getInfoWindow(@NonNull Marker marker) {
+                                            View view = getLayoutInflater().inflate(R.layout.info_window, null);
+                                            TextView title = view.findViewById(R.id.titleTextView);
+                                            title.setText("6 rue Rempart Villeneuve, 31000 Toulouse");
+
+                                            Button itineraire = view.findViewById(R.id.itineraire);
+                                            itineraire.setOnClickListener(v -> {
+                                                String uri = String.format(Locale.ENGLISH, "geo:?q=%f,%f", lat, lon);
+                                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+                                                startActivity(intent);
+                                            });
+                                            return view;
+                                        }
+                                    });
+                                    break;
+
+                                case "43,606171,1,447397":
+                                    mapboxMap.setInfoWindowAdapter(new MapboxMap.InfoWindowAdapter() {
+                                        @Override
+                                        public View getInfoWindow(@NonNull Marker marker) {
+                                            View view = getLayoutInflater().inflate(R.layout.info_window, null);
+                                            TextView title = view.findViewById(R.id.titleTextView);
+                                            title.setText("11 rue Rempart Villeneuve, 31000 Toulouse");
+
+                                            Button itineraire = view.findViewById(R.id.itineraire);
+                                            itineraire.setOnClickListener(v -> {
+                                                String uri = String.format(Locale.ENGLISH, "geo:?q=%f,%f", lat, lon);
+                                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+                                                startActivity(intent);
+                                            });
+                                            return view;
+                                        }
+                                    });
+                                    break;
+
+                                //Emplacement Horodateur
+                                case "43,605747,1,447374":
+                                    mapboxMap.setInfoWindowAdapter(new MapboxMap.InfoWindowAdapter() {
+                                        @Override
+                                        public View getInfoWindow(@NonNull Marker marker) {
+                                            View view = getLayoutInflater().inflate(R.layout.info_window, null);
+                                            TextView title = view.findViewById(R.id.titleTextView);
+                                            title.setText("3 bis rue Rempart Villeneuve , 31000 Toulouse");
+
+                                            Button itineraire = view.findViewById(R.id.itineraire);
+                                            itineraire.setOnClickListener(v -> {
+                                                String uri = String.format(Locale.ENGLISH, "geo:?q=%f,%f", lat, lon);
+                                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+                                                startActivity(intent);
+                                            });
+                                            return view;
+                                        }
+                                    });
+                                break;
+
+                                //Emplacement Selective
+                                case "43,605358,1,445690":
+
+                                    //Emplacement Verre
+                                case "43,605373,1,445960":
+                                    mapboxMap.setInfoWindowAdapter(new MapboxMap.InfoWindowAdapter() {
+                                        @Override
+                                        public View getInfoWindow(@NonNull Marker marker) {
+                                            View view = getLayoutInflater().inflate(R.layout.info_window, null);
+                                            TextView title = view.findViewById(R.id.titleTextView);
+                                            title.setText("49 rue d'Alsace-Lorraine, 31000 Toulouse");
+
+                                            Button itineraire = view.findViewById(R.id.itineraire);
+                                            itineraire.setOnClickListener(v -> {
+                                                String uri = String.format(Locale.ENGLISH, "geo:?q=%f,%f", lat, lon);
+                                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+                                                startActivity(intent);
+                                            });
+                                            return view;
+                                        }
+                                    });
+                                    break;
+
+                                case "43,603573,1,445642":
+
+                                case "43,603561,1,445643":
+                                    mapboxMap.setInfoWindowAdapter(new MapboxMap.InfoWindowAdapter() {
+                                        @Override
+                                        public View getInfoWindow(@NonNull Marker marker) {
+                                            View view = getLayoutInflater().inflate(R.layout.info_window, null);
+                                            TextView title = view.findViewById(R.id.titleTextView);
+                                            title.setText("39 rue d'Alsace-Lorraine, 31000 Toulouse");
+
+                                            Button itineraire = view.findViewById(R.id.itineraire);
+                                            itineraire.setOnClickListener(v -> {
+                                                String uri = String.format(Locale.ENGLISH, "geo:?q=%f,%f", lat, lon);
+                                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+                                                startActivity(intent);
+                                            });
+                                            return view;
+                                        }
+                                    });
+                                    break;
+
+                                case "43,604874,1,442645":
+
+                                case "43,604866,1,442647":
+
+                                    //Emplacement Bornes
+                                case "43,604820,1,442671":
+                                    mapboxMap.setInfoWindowAdapter(new MapboxMap.InfoWindowAdapter() {
+                                        @Override
+                                        public View getInfoWindow(@NonNull Marker marker) {
+                                            View view = getLayoutInflater().inflate(R.layout.info_window, null);
+                                            TextView title = view.findViewById(R.id.titleTextView);
+                                            title.setText("1 rue des Lois, 31000 Toulouse");
+
+                                            Button itineraire = view.findViewById(R.id.itineraire);
+                                            itineraire.setOnClickListener(v -> {
+                                                String uri = String.format(Locale.ENGLISH, "geo:?q=%f,%f", lat, lon);
+                                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+                                                startActivity(intent);
+                                            });
+                                            return view;
+                                        }
+                                    });
+                                    break;
+
+                                case "43,604950,1,443701":
+                                    mapboxMap.setInfoWindowAdapter(new MapboxMap.InfoWindowAdapter() {
+                                        @Override
+                                        public View getInfoWindow(@NonNull Marker marker) {
+                                            View view = getLayoutInflater().inflate(R.layout.info_window, null);
+                                            TextView title = view.findViewById(R.id.titleTextView);
+                                            title.setText("1 rue Charles de Rémusat, 31000 Toulouse");
+
+                                            Button itineraire = view.findViewById(R.id.itineraire);
+                                            itineraire.setOnClickListener(v -> {
+                                                String uri = String.format(Locale.ENGLISH, "geo:?q=%f,%f", lat, lon);
+                                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+                                                startActivity(intent);
+                                            });
+                                            return view;
+                                        }
+                                    });
+                                    break;
+
+                                case "43,603931,1,443868":
+                                    mapboxMap.setInfoWindowAdapter(new MapboxMap.InfoWindowAdapter() {
+                                        @Override
+                                        public View getInfoWindow(@NonNull Marker marker) {
+                                            View view = getLayoutInflater().inflate(R.layout.info_window, null);
+                                            TextView title = view.findViewById(R.id.titleTextView);
+                                            title.setText("2 Place du Capitole, 31000 Toulouse");
+
+                                            Button itineraire = view.findViewById(R.id.itineraire);
+                                            itineraire.setOnClickListener(v -> {
+                                                String uri = String.format(Locale.ENGLISH, "geo:?q=%f,%f", lat, lon);
+                                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+                                                startActivity(intent);
+                                            });
+                                            return view;
+                                        }
+                                    });
+                                    break;
+
+                                case "43,604073,1,444741":
+                                    mapboxMap.setInfoWindowAdapter(new MapboxMap.InfoWindowAdapter() {
+                                        @Override
+                                        public View getInfoWindow(@NonNull Marker marker) {
+                                            View view = getLayoutInflater().inflate(R.layout.info_window, null);
+                                            TextView title = view.findViewById(R.id.titleTextView);
+                                            title.setText("1 rue Ernest Roschach, 31000 Toulouse");
+
+                                            Button itineraire = view.findViewById(R.id.itineraire);
+                                            itineraire.setOnClickListener(v -> {
+                                                String uri = String.format(Locale.ENGLISH, "geo:?q=%f,%f", lat, lon);
+                                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+                                                startActivity(intent);
+                                            });
+                                            return view;
+                                        }
+                                    });
+                                    break;
+
+                                case "43,603565,1,444829":
+                                    mapboxMap.setInfoWindowAdapter(new MapboxMap.InfoWindowAdapter() {
+                                        @Override
+                                        public View getInfoWindow(@NonNull Marker marker) {
+                                            View view = getLayoutInflater().inflate(R.layout.info_window, null);
+                                            TextView title = view.findViewById(R.id.titleTextView);
+                                            title.setText("66 rue de la Pomme, 31000 Toulouse");
+
+                                            Button itineraire = view.findViewById(R.id.itineraire);
+                                            itineraire.setOnClickListener(v -> {
+                                                String uri = String.format(Locale.ENGLISH, "geo:?q=%f,%f", lat, lon);
+                                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+                                                startActivity(intent);
+                                            });
+                                            return view;
+                                        }
+                                    });
+                                    break;
+
+                                case "43,604897,1,444557":
+                                    mapboxMap.setInfoWindowAdapter(new MapboxMap.InfoWindowAdapter() {
+                                        @Override
+                                        public View getInfoWindow(@NonNull Marker marker) {
+                                            View view = getLayoutInflater().inflate(R.layout.info_window, null);
+                                            TextView title = view.findViewById(R.id.titleTextView);
+                                            title.setText("2 rue Ernest Roschach, 31000 Toulouse");
+
+                                            Button itineraire = view.findViewById(R.id.itineraire);
+                                            itineraire.setOnClickListener(v -> {
+                                                String uri = String.format(Locale.ENGLISH, "geo:?q=%f,%f", lat, lon);
+                                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+                                                startActivity(intent);
+                                            });
+                                            return view;
+                                        }
+                                    });
+                                    break;
+
+                                case "43,605942,1,444373":
+                                    mapboxMap.setInfoWindowAdapter(new MapboxMap.InfoWindowAdapter() {
+                                        @Override
+                                        public View getInfoWindow(@NonNull Marker marker) {
+                                            View view = getLayoutInflater().inflate(R.layout.info_window, null);
+                                            TextView title = view.findViewById(R.id.titleTextView);
+                                            title.setText("22 rue Charles de Rémusat, 31000 Toulouse");
+
+                                            Button itineraire = view.findViewById(R.id.itineraire);
+                                            itineraire.setOnClickListener(v -> {
+                                                String uri = String.format(Locale.ENGLISH, "geo:?q=%f,%f", lat, lon);
+                                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+                                                startActivity(intent);
+                                            });
+                                            return view;
+                                        }
+                                    });
+                                    break;
+
+                                //Emplacement Sanisettes
+                                case "43,604141,1,444919":
+                                    mapboxMap.setInfoWindowAdapter(new MapboxMap.InfoWindowAdapter() {
+                                        @Override
+                                        public View getInfoWindow(@NonNull Marker marker) {
+                                            View view = getLayoutInflater().inflate(R.layout.info_window, null);
+                                            TextView title = view.findViewById(R.id.titleTextView);
+                                            title.setText("6 rue du Poids de l'Huile, 31000 Toulouse");
+
+                                            Button itineraire = view.findViewById(R.id.itineraire);
+                                            itineraire.setOnClickListener(v -> {
+                                                String uri = String.format(Locale.ENGLISH, "geo:?q=%f,%f", lat, lon);
+                                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+                                                startActivity(intent);
+                                            });
+                                            return view;
+                                        }
+                                    });
+                                    break;
+                                default:
+                                    Toast.makeText(autour_activity.this, "Aucune information disponible", Toast.LENGTH_SHORT).show();
+                                    break;
+                            }
+
+                            return false;
+                        }
+                    });
+                });
                 drawerLayout.closeDrawers();
-
-                return true; // Retourne true pour indiquer que l'événement a été traité avec succès
+                return true;
             }
         });
 
