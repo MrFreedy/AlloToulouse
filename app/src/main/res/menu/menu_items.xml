@@ -1,0 +1,67 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Titre du groupe -->
+    <group>
+        <item
+            android:title="Stationnement"
+            android:checkable="false"
+            android:enabled="false" />
+    </group>
+
+    <group>
+        <item
+            android:id="@+id/pmr"
+            android:title="Emplacement PMR"
+            android:icon="@drawable/pmr"/>
+    </group>
+    <group>
+        <item
+            android:id="@+id/horodateur"
+            android:title="Horodateurs"
+            android:icon="@drawable/horodateurs"/>
+    </group>
+    <group >
+        <item
+            android:title="Déchets"
+            android:checkable="false"
+            android:enabled="false" />
+    </group>
+    <group>
+        <item
+            android:id="@+id/selective"
+            android:title="Conteneurs selectif"
+            android:icon="@drawable/selective"/>
+    </group>
+    <group>
+        <item
+            android:id="@+id/verre"
+            android:title="Recup'Verre"
+            android:icon="@drawable/verre"/>
+    </group>
+
+    <group>
+        <item
+            android:title="Circulation"
+            android:checkable="false"
+            android:enabled="false" />
+    </group>
+    <group>
+        <item
+            android:id="@+id/bornes"
+            android:title="Bornes"
+            android:icon="@drawable/bornes"/>
+    </group>
+
+    <group>
+        <item
+            android:title="Services"
+            android:checkable="false"
+            android:enabled="false" />
+    </group>
+    <group>
+        <item
+            android:id="@+id/sanisettes"
+            android:title="Sanisettes"
+            android:icon="@drawable/sanisette"/>
+    </group>
+
+</menu>
