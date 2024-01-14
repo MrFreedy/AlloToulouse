@@ -33,3 +33,11 @@ Face à cette nécessité d'innovation, la municipalité a choisi de collaborer 
   ![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)
 
 
+# Copyright
+
+© 2024 Cete maquette AlloToulouse est un projet développé par Tornexis en collaboration avec Toulouse Métropole. Tous les droits sont détenus conjointement par Tornexis et Toulouse Métropole.
+
+Le contenu de ce référentiel est protégé par les lois sur les droits d'auteur et ne peut être reproduit, distribué, ou utilisé d'aucune manière sans l'autorisation écrite préalable de Tornexis et Toulouse Métropole.
+
+
+
